@@ -6,12 +6,10 @@ using namespace std;
 
 int main()
 {
-	int n = 10;
-	
+	int n = 10;	
 	int *arr;	
-	
-
 	arr = new int[n];
+
 	srand(time(NULL));
 	cout << endl << endl << endl;
 
@@ -36,6 +34,7 @@ int main()
 		arr2[i] = arr[i];		
 	
 	arr2[n] = key;
+
 	cout << endl;
 	for (int i = 0; i < n + 1; i++)
 		cout << setw(4) << arr2[i];
@@ -43,19 +42,19 @@ int main()
 
 	int i = 0;
 	while (arr2[i] != key) i++;
-	cout << endl;
-	
-	if (i < n)
 	{
-		cout << endl;
-		cout << "Element: ";
-		cout << arr2[i];
-		cout << " found at position: ";
-		cout << i;
-	}		
-	else
-		cout << "Not found";
-	
+			cout << endl;
+		if (i < n)
+		{
+			cout << endl;
+			cout << "Element: ";
+			cout << arr2[i];
+			cout << " found at position: ";
+			cout << i;
+		}
+		else
+			cout << "Not found";
+	}
 
 	cout << endl;
 
