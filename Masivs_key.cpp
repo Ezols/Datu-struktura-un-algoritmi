@@ -6,6 +6,8 @@ using namespace std;
 
 int main()
 {
+
+	cout << "Pirmais uzd."
 	int n = 10;
 	int *arr;
 	arr = new int[n];
