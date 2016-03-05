@@ -11,10 +11,13 @@ int main()
 {
 
 	cout << "First task!";
-	int n = 10;
-	int *arr;
-	arr = new int[n];
+	int n = 100;
+	int i = 0;
 	
+	int *arr;
+	int coutner = 0;
+	arr = new int[n];
+
 
 	srand(time(NULL));
 	cout << endl << endl << endl;
@@ -26,14 +29,16 @@ int main()
 	}
 
 	cout << endl << endl << endl;
-
-	// Otrais uzd
-	int counter = 0;
 	cout << "Second task!" << endl << endl;
+	// Otrais uzd
 	int key;
 	cout << "Enter the key: ";
 	cin >> key;
-		
+	while (arr[i] != key)
+	{
+		i++;
+		coutner++;
+	}
 	cout << endl;
 
 	arr[n] = key;
@@ -43,10 +48,10 @@ int main()
 		cout << setw(4) << arr[i];
 	cout << endl;
 
-	int i = 0;
+
 	while (arr[i] != key) i++;
 	{
-		coutner++;
+		//coutner++;
 		cout << endl;
 		if (i < n)
 		{
@@ -60,31 +65,32 @@ int main()
 		{
 			cout << "Not found";
 		}
+		cout << endl;
 		cout << "Counter: " << coutner << endl;
 	}
 
 	//uzd 3 ------ start
-	int arr2[10] = { 2, 30, 1, 99, 46, 33, 48, 67, 23, 76 };
+	//int arr2[10] = { 2, 30, 1, 99, 46, 33, 48, 67, 23, 76 };
 
 	cout << endl << endl;
 	cout << "Third task!" << endl << endl;
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < n; i++)
 	{
-		cout << arr2[i] << " ";
+		cout << arr[i] << " ";
 	}
 	cout << endl << endl;
 	cout << "arr after quicksort: ";
 	cout << endl;
 
-	quickSort(arr2, 0, 9);
-	
-	for (int i = 0; i < 10; i++)
+	quickSort(arr, 0, 9);
+
+	for (int i = 0; i < n; i++)
 	{
-		cout << arr2[i] << " ";
+		cout << arr[i] << " ";
 	}
 
 
-	
+
 	//uzd 3 ------ end
 	cout << endl;
 
