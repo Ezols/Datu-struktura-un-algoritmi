@@ -11,7 +11,7 @@ int main()
 {
 
 	cout << "First task!";
-	int n = 100;
+	int n = 10;
 	int i = 0;
 	
 	int *arr;
