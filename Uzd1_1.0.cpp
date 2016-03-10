@@ -14,7 +14,7 @@ int main()
 	//searchTester2000();
 	// First task
 	cout << "First task!";
-	
+
 	int i = 0;
 	const int n = 10;
 	int arr[n] = {};
@@ -47,22 +47,22 @@ int main()
 		cout << setw(4) << arr[i];
 	cout << endl;
 	int position = search(arr, key, n);
-	if ( position >= 0)
+	if (position >= 0)
 		cout << "Element: " << arr[position]
-			<< " \t found at position: " << position
-			<< " \t counter: " << position + 1
-			<< endl;
-		
+		<< " \t found at position: " << position
+		<< " \t counter: " << position + 1
+		<< endl;
+
 	else
 		cout << "Nothing found" << endl;
-	
+
 	//Third task
 
 	cout << endl << endl;
 	cout << "Third task!" << endl << endl;
 	for (int i = 0; i < n; i++)
 	{
-		cout << setw(4) <<arr[i];
+		cout << setw(4) << arr[i];
 	}
 	cout << endl << endl;
 	cout << "arr after quicksort: ";
@@ -92,21 +92,25 @@ int main()
 
 		else i = m + 1;
 		m = (i + j) / 2;
-		
+
 	}
 
 	cout << endl;
-	
+
 	cout << endl;
+	cout << "asdasd " << key << endl;
 	if (arr[m] == key)
 	{
-		cout << "Element: " << key << " found at position: " << m << endl;
-	}	
+		cout << "Element: " << arr[m]
+			<< " \t found at position: " << m
+			<< " \t counter: " << m + 1
+			<< endl;
+	}
 	else
 	{
 		cout << "Not found";
 	}
-	
+
 	cout << "Counter: " << coutner;
 	//Third task ------ end
 	cout << endl;
@@ -119,24 +123,24 @@ int main()
 int search(int arr[], int key, int size)
 {
 	for (int i = 0; i < size; i++)
-	{		
-		if (arr[i] == key) 
+	{
+		if (arr[i] == key)
 		{
 			return i; // atgriez poziciju, ja arr[i] atgrieş vertîbu
 		}
 	}
-	
+
 	return -1;
 }
 
 void hoareSort(int list[], int left, int right)
 {
-	if (left < right) 
+	if (left < right)
 	{
 		int boundary = left;
-		for (int i = left + 1; i < right; i++) 
+		for (int i = left + 1; i < right; i++)
 		{
-			if (list[i] < list[left]) 
+			if (list[i] < list[left])
 			{
 				swapItems(list, i, ++boundary);
 			}
@@ -154,46 +158,40 @@ void swapItems(int list[], int left, int right)
 	list[right] = tmp;
 }
 
-void searchTester2000() 
+void searchTester2000()
 {
 	srand(time(NULL));
 	int key = rand() % 100 + 1;
-	int times = 1; // to daris vienam masivam
-	int step = 0; // pa cik palielinas +
-	int size = 10;	
-
-	for (int i = 0; i < 10; i++) 
+	int times = 2; // cik reizes ies cauri masivam, video aritmetisko
+	int step = 1000; // pa cik palielinas +
+	int size = 1000;
+	cout << "Key: " << key << endl;
+	for (int i = 0; i < 10; i++)
 	{
 		int startTime;
 		int totalTime = 0;
-		int *array;
-		array = new int[size];
-		srand(time(NULL));
-		cout << key;
+		int *array = new int[size];
+		
 
-		for(int l = 0; l < size; l++)
-			cout << array[l] << "\t";
+		
+		cout << endl << endl << endl;
 
 		for (int k = 0; k < size; k++)
 		{
-			srand(time(NULL));
-			array[k] = rand() % 100 + 1;
-			//cout << "elements: " << k << " skaitlis: " << array[k] << endl;
+			array[k] = rand() % 10000 + 1;
+			//cout << setw(4) << array[k];
 		}
 
-		for (int j = 0; j < times; j++) 
+		for (int j = 0; j < times; j++)
 		{
 			startTime = time(NULL); // TODO: Nomçra sâkuma âtrumu	
-			cout << "Start time = " << startTime << endl;
 			search(array, key, size);
-			cout << "End time = " << time(NULL) << endl;
 			totalTime = totalTime + time(NULL) - startTime;// TODO: Darît darbîbu			
-			cout << "Total time = " << totalTime << endl;
 		}
 
 		// TODO: Vidçjais âtrumus
-		cout << "Avarage speed: "<< size << "\t" << totalTime / times << endl;
+		cout << "Avarage speed: " << size << "\t" << totalTime / times << endl;
 
 		size = size + step;
-	} 
+	}
 }
